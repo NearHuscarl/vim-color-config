@@ -30,8 +30,8 @@ group:
    Ignore:        _           _          _
    Statement:     yellow      _          _
 link:
-   - Conditional              ->     Statement
-   - PreProc                  ->     Error
+   - Conditional     ->       Statement
+   - PreProc         ->       Error
 ```
 
 #### Output
@@ -84,10 +84,25 @@ $ pip install pyyaml
 ```
 
 ## Installation
-todo
+
+#### Pathogen
+``` bash
+cd ~/.vim/bundle
+git clone https://github.com/NearHuscarl/vim-color-config.git
+# vim -u NONE -c "helptags vim-color-config/doc" -c q
+```
+
+#### Vim-plug
+``` vim
+Plug 'NearHuscarl/vim-color-config'
+```
+
+#### Vundles
+``` vim
+Plugin 'NearHuscarl/vim-color-config'
+```
 
 ## Options
-generate colorscheme file from simple yaml color config
 
 | option                       | default      |
 | :--------------------------- | :-------     |
@@ -126,8 +141,13 @@ optional arguments:
 ```
 
 **Note**: Your vim dont have to be compiled with python (+python) because
-the source file `source/color_config.py` can act as a standalone command
+the source file `source/color_config.py` can act as a standalone command.
+This plugin is just a wrapper around that command
 
 ## Related Works
 * [colortemplate](https://github.com/lifepillar/vim-colortemplate) by [lifepillar](https://github.com/lifepillar)
 * [rnb](https://gist.github.com/romainl/5cd2f4ec222805f49eca) by [romainl](https://github.com/romainl)
+
+## Todo
+* Add docs
+* Add option to auto reload on save
