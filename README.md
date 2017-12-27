@@ -102,6 +102,35 @@ Plug 'NearHuscarl/vim-color-config'
 Plugin 'NearHuscarl/vim-color-config'
 ```
 
+## Usage
+
+Quickstart using default settings
+
+Create the config file in yaml format in `~/.vim/colors/example.yaml`
+
+**Note:** On window, the path should be `~\vimfiles\colors\example.yaml`
+
+Here is the minimal config:
+
+``` yaml
+name: example
+author:
+   name: Near Huscarl
+   email: near.huscarl@gmail.com
+palette:
+   # color name         gui         cterm    optional
+   dark:             ['#1F2D3A',      0,     'black'    ]
+   white:            ['#ECF0F1',      15,    'white'    ]
+group:
+   #              fg          bg         attr
+   Normal:        white       dark       _
+```
+
+Save the file and type `:ColorConfigGenerate`
+
+Now you have a new colorshcheme file in the same directory, in this case
+`~/.vim/colors/example.vim`
+
 ## Options
 
 | option                       | default      |
