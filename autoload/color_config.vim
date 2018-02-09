@@ -9,7 +9,7 @@
 
 " {{{ global
 let s:plugin_path = expand('<sfile>:p:h')
-let s:executable_path = simplify(s:plugin_path . '/../source/color_config.py')
+let s:executable_path = simplify(s:plugin_path . '/../src/color_config.py')
 let s:has_python3 = executable('python3') ? 'True' : 'False'
 
 call system("python -c 'import yaml'")
