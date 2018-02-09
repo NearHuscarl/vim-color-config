@@ -17,8 +17,6 @@ let s:has_pyyaml = v:shell_error ? 'False' : 'True'
 let s:default_output = 'cwd'
 let s:default_options = ['indent']
 let s:default_debug_option = 0
-let s:default_reload_color_on_save_option = 0
-let s:default_generate_on_save_option = 0
 " }}}
 " {{{ options
 if !exists('g:color_config_output_path')
@@ -115,11 +113,17 @@ function! s:run_shell_cmd(command) " {{{
 	endif
 endfunction
 " }}}
+function! s:get_dest() " {{{
+	if g:color_config_output_path ==? 'cwd'
+		return shellescape(expand('%:p:h'), 1)
+	endif
+	return shellescape(expand(g:color_config_output_path), 1)
+endfunction
+" }}}
 function! color_config#generate() " {{{
 	let s:cmd = shellescape(s:executable_path, 1)
 	let s:input = shellescape(expand('%:p'), 1)
-	let s:dest = g:color_config_output_path ==? 'cwd' ?
-				\ shellescape(expand('%:p:h'), 1) : shellescape(expand(g:color_config_output_path), 1)
+	let s:dest = s:get_dest()
 	let s:options = s:get_options()
 	call s:run_shell_cmd(s:cmd . ' -d ' . s:dest . ' ' . s:options . s:input)
 endfunction
